@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27009.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PurePusherClient", "PurePusherClient\PurePusherClient.csproj", "{A5F1A1B7-AF52-472C-8631-0608012CE83E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PurePusherClientTest", "PurePusherClientTest\PurePusherClientTest.csproj", "{53D092F8-D685-4C89-9CDE-60255BF9E839}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5F1A1B7-AF52-472C-8631-0608012CE83E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5F1A1B7-AF52-472C-8631-0608012CE83E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5F1A1B7-AF52-472C-8631-0608012CE83E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5F1A1B7-AF52-472C-8631-0608012CE83E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53D092F8-D685-4C89-9CDE-60255BF9E839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53D092F8-D685-4C89-9CDE-60255BF9E839}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53D092F8-D685-4C89-9CDE-60255BF9E839}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53D092F8-D685-4C89-9CDE-60255BF9E839}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3756FEF4-D6C7-496D-A157-8BC0D8ABA52F}
+	EndGlobalSection
+EndGlobal
