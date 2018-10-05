@@ -45,25 +45,25 @@ namespace PurePusher
 
 		private void _websocket_OnMessage(string message)
 		{
-			var dmessage = _purePusherClient.Options.Serializer.Deserialize<EventResponseMessage>(message);
-			_purePusherClient.EmitEvent(_purePusherClient.Options.Serializer, dmessage.@event, dmessage.data.ToString());
+			var dMessage = _purePusherClient.Options.Serializer.Deserialize<EventResponseMessage>(message);
+			_purePusherClient.EmitEvent(_purePusherClient.Options.Serializer, dMessage.@event, dMessage.data.ToString());
 
-			switch (dmessage.@event)
+			switch (dMessage.@event)
 			{
 				case Constants.ERROR:
-					ParseError((ErrorDataMessage)dmessage.data);
+					ParseError((ErrorDataMessage)dMessage.data);
 					break;
 				case Constants.PING:
 					Send(_purePusherClient.Options.Serializer.Serialize(new { @event = "pusher:pong", channel = "", data = "" }));
 					break;
 				case Constants.CONNECTION_ESTABLISHED:
-					ParseConnectionEstablished(dmessage.data.ToString());
+					ParseConnectionEstablished(dMessage.data.ToString());
 					break;
 				case Constants.CHANNEL_SUBSCRIPTION_SUCCEEDED:
-					if (_purePusherClient.Channels.ContainsKey(dmessage.channel))
+					if (_purePusherClient.Channels.ContainsKey(dMessage.channel))
 					{
-						var channel = _purePusherClient.Channels[dmessage.channel];
-						channel.SubscriptionSucceeded(dmessage.data.ToString());
+						var channel = _purePusherClient.Channels[dMessage.channel];
+						channel.SubscriptionSucceeded(dMessage.data.ToString());
 					}
 					break;
 				case Constants.CHANNEL_SUBSCRIPTION_ERROR:
@@ -71,32 +71,32 @@ namespace PurePusher
 					break;
 				case Constants.CHANNEL_MEMBER_ADDED:
 					// assume channel event
-					if (_purePusherClient.Channels.ContainsKey(dmessage.channel))
+					if (_purePusherClient.Channels.ContainsKey(dMessage.channel))
 					{
-						var channel = _purePusherClient.Channels[dmessage.channel];
+						var channel = _purePusherClient.Channels[dMessage.channel];
 
 						if (channel is PresenceChannel presenceChannel)
 						{
-							presenceChannel.AddMember(dmessage.data.ToString());
+							presenceChannel.AddMember(dMessage.data.ToString());
 						}
 					}
 					break;
 				case Constants.CHANNEL_MEMBER_REMOVED:
 					// assume channel event
-					if (_purePusherClient.Channels.ContainsKey(dmessage.channel))
+					if (_purePusherClient.Channels.ContainsKey(dMessage.channel))
 					{
-						var channel = _purePusherClient.Channels[dmessage.channel];
+						var channel = _purePusherClient.Channels[dMessage.channel];
 
 						if (channel is PresenceChannel presenceChannel)
 						{
-							presenceChannel.RemoveMember(dmessage.data.ToString());
+							presenceChannel.RemoveMember(dMessage.data.ToString());
 						}
 					}
 					break;
 				default:
 					// unhandled message type, Assume channel event
-					if (_purePusherClient.Channels.ContainsKey(dmessage.channel))
-						_purePusherClient.Channels[dmessage.channel].EmitEvent(_purePusherClient.Options.Serializer, dmessage.@event, dmessage.data.ToString());
+					if (_purePusherClient.Channels.ContainsKey(dMessage.channel))
+						_purePusherClient.Channels[dMessage.channel].EmitEvent(_purePusherClient.Options.Serializer, dMessage.@event, dMessage.data.ToString());
 					break;
 			}
 		}
