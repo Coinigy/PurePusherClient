@@ -16,6 +16,13 @@
     <PackageLicenseUrl>https://raw.githubusercontent.com/Coinigy/PurePusherClient/master/LICENSE</PackageLicenseUrl>
     <PackageTags>pusher, pusher.com, websocket, websockets, realtime, api, pusher client</PackageTags>
     <Copyright>Copyright 2018 Coinigy Inc.</Copyright>
+    <LangVersion>7.2</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
   <ItemGroup>
