@@ -17,6 +17,7 @@
     <PackageTags>pusher, pusher.com, websocket, websockets, realtime, api, pusher client</PackageTags>
     <Copyright>Copyright 2018 Coinigy Inc.</Copyright>
     <LangVersion>7.2</LangVersion>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
