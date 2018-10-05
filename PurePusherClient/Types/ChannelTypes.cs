@@ -1,9 +1,9 @@
 ﻿namespace PurePusher.Types
 {
-	public enum ChannelTypes
-	{
-		Public,
-		Private,
-		Presence
-	}
+    public enum ChannelTypes
+    {
+        Public,
+        Private,
+        Presence
+    }
 }

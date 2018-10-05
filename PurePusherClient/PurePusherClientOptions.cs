@@ -6,14 +6,14 @@ namespace PurePusher
 {
     public class PurePusherClientOptions : PureWebSocketOptions
     {
-	    public ISerializer Serializer { get; set; }
-	    public IAuthorizer Authorizer { get; set; }
-		public const string ClientName = "netstandard_purepusherclient";
-	    public bool Encrypted { get; set; }
-		public string Host = "ws.pusherapp.com";
-	    public ProtocolVersions ProtocolVersion = ProtocolVersions.Seven;
-	    public const string VersionNumber = "1.0.0";
+        public const string ClientName = "netstandard_purepusherclient";
+        public const string VersionNumber = "1.0.0";
+        public string Host = "ws.pusherapp.com";
+        public ProtocolVersions ProtocolVersion = ProtocolVersions.Seven;
+        public ISerializer Serializer { get; set; }
+        public IAuthorizer Authorizer { get; set; }
+        public bool Encrypted { get; set; }
 
-		internal void SetSslOptionOn() => Encrypted = true;
-	}
+        internal void SetSslOptionOn() => Encrypted = true;
+    }
 }

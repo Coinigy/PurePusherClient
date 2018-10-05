@@ -1,36 +1,36 @@
 ﻿namespace PurePusher
 {
-	public class Channel : EventEmitter
-	{
-		private readonly PurePusherClient _purePusherClient;
-		public string Name;
+    public class Channel : EventEmitter
+    {
+        private readonly PurePusherClient _purePusherClient;
+        public string Name;
 
-		public Channel(string channelName, PurePusherClient purePusherClient)
-		{
-			_purePusherClient = purePusherClient;
-			Name = channelName;
-		}
+        public Channel(string channelName, PurePusherClient purePusherClient)
+        {
+            _purePusherClient = purePusherClient;
+            Name = channelName;
+        }
 
-		public bool IsSubscribed { get; private set; }
+        public bool IsSubscribed { get; private set; }
 
-		public event SubscriptionEventHandler Subscribed;
+        public event SubscriptionEventHandler Subscribed;
 
-		internal virtual void SubscriptionSucceeded(string data)
-		{
-			if (IsSubscribed)
-				return;
+        internal virtual void SubscriptionSucceeded(string data)
+        {
+            if (IsSubscribed)
+                return;
 
-			IsSubscribed = true;
+            IsSubscribed = true;
 
-			Subscribed?.Invoke(this);
-		}
+            Subscribed?.Invoke(this);
+        }
 
-		public void Trigger(string eventName, object obj) => _purePusherClient?.Trigger(Name, eventName, obj);
+        public void Trigger(string eventName, object obj) => _purePusherClient?.Trigger(Name, eventName, obj);
 
-		public void Unsubscribe()
-		{
-			IsSubscribed = false;
-			_purePusherClient.Unsubscribe(Name);
-		}
-	}
+        public void Unsubscribe()
+        {
+            IsSubscribed = false;
+            _purePusherClient.Unsubscribe(Name);
+        }
+    }
 }
